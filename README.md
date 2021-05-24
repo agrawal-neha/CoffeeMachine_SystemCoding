@@ -19,7 +19,8 @@ At this point of time, we are ready to serve beverages. For any request, we perf
    is too small to hold the required quantity
 6. If container can hold the required quantity, but it does not have enough quantity, but we can take out from inventory. In this case, we refill the container first.
 7. If all the ingredients are sufficient, we prepare the coffee. Once the coffee is under preparation, we update the container quantity. Also, if the container quantity goes
-   below 20%, we refill the container so that next beverage request is served in a better way. The indicators keeps on updating whenver there is a change in quantity of          conatiners.
+   below 20%, we refill the container so that next beverage request is served in a better way. The indicators keeps on updating whenver there is a change in quantity of
+   conatiners.
 
 Performance:
 To serve the beverages in parallel, we are adding all the beverages in a common queue and creating as number of threads as outlets. 
