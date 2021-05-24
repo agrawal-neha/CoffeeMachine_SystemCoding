@@ -20,9 +20,9 @@ At this point of time, we are ready to serve beverages. For any request, we perf
 6. If container can hold the required quantity, but it does not have enough quantity, but we can take out from inventory. In this case, we refill the container first.
 7. If all the ingredients are sufficient, we prepare the coffee. Once the coffee is under preparation, we update the container quantity. Also, if the container quantity goes
    below 20%, we refill the container so that next beverage request is served in a better way. The indicators keeps on updating whenver there is a change in quantity of
-   conatiners.
+   containers.
 
-Performance:
+## Performance:
 To serve the beverages in parallel, we are adding all the beverages in a common queue and creating as number of threads as outlets. 
 Each thread will be taking the first request present in the queue and serve that request until the queue is empty. 
 Mutex is used to ensure that no two threads take same request. Also, while preparing beverages, mutex is used to ensure that the common resources are always consistent. 
@@ -30,34 +30,34 @@ Only one thread will have access to inventory and container resources at a time 
 
 Below are the classes and their APIs:
 1. CoffeeMachine: 
-   -number of outlets
-   -inventory details
-   -container in coffee machine for each ingredient that coffee machine supports
+   - number of outlets
+   - inventory details
+   - container in coffee machine for each ingredient that coffee machine supports
    APIs:
-        -to fill all the ingrediemt container
-        -to refill any given ingredient container
-        -prepareBeverage
+        - to fill all the ingredient container
+        - to refill any given ingredient container
+        - prepareBeverage
 2. Inventory: 
    -ingredients and their quantity available in inventory
    APIs:
-        -to get the quantity of any ingredient present in inventory
-        -to update quantity of any ingredient in the inventory
+        - to get the quantity of any ingredient present in inventory
+        - to update quantity of any ingredient in the inventory
 3. IngredientContainer (a part of coffee machine)
-   -max capacity of the ingredient containers
-   -current quantity present in ingredient containers
-   -indicators for each container which is ON when it is running low (Currently, set to 0, can be set to say <=10%)
+   - max capacity of the ingredient containers
+   - current quantity present in ingredient containers
+   - indicators for each container which is ON when it is running low (Currently, set to 0, can be set to say <=10%)
    APIs:
-        -to get capacity of the container for any ingredient
-        -to get current quantity of the container for any ingredient
-        -to update the current quantity of the container for any ingredient
-        -to check if the indicator of an ingredient is low
-        -to check if we have a container for a particular ingredient available or not
+        - to get capacity of the container for any ingredient
+        - to get current quantity of the container for any ingredient
+        - to update the current quantity of the container for any ingredient
+        - to check if the indicator of an ingredient is low
+        - to check if we have a container for a particular ingredient available or not
 4. Beverage: 
-   -name of the beverage
-   -ingredients (name and quantity )
+   - name of the beverage
+   - ingredients (name and quantity )
    APIs:
-        -to get beverage name
-        -to get beverage details
+        - to get beverage name
+        - to get beverage details
    
 
 # Scenarios that are considered/handled
