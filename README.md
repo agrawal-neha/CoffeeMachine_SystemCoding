@@ -4,7 +4,7 @@ A beverage will be prepared based on some ingredients.
 Assumption: Time taken to prepare any beverage is same
 
 # Implementation:
-using C++
+C++
 
 # Approach
 First of all inventory is updated with all the ingredients and their quantity.
@@ -32,20 +32,20 @@ Below are the classes and their APIs:
 1. CoffeeMachine: 
    - number of outlets
    - inventory details
-   - container in coffee machine for each ingredient that coffee machine supports
-   APIs:
+   - container in coffee machine for each ingredient that coffee machine supports  
+APIs:
         - to fill all the ingredient container
         - to refill any given ingredient container
         - prepareBeverage
 2. Inventory: 
-   -ingredients and their quantity available in inventory
+   - ingredients and their quantity available in inventory   
    APIs:
-        - to get the quantity of any ingredient present in inventory
-        - to update quantity of any ingredient in the inventory
+      - to get the quantity of any ingredient present in inventory
+      - to update quantity of any ingredient in the inventory
 3. IngredientContainer (a part of coffee machine)
    - max capacity of the ingredient containers
    - current quantity present in ingredient containers
-   - indicators for each container which is ON when it is running low (Currently, set to 0, can be set to say <=10%)
+   - indicators for each container which is ON when it is running low (Currently, set to 0, can be set to say <=10%)  
    APIs:
         - to get capacity of the container for any ingredient
         - to get current quantity of the container for any ingredient
@@ -54,7 +54,7 @@ Below are the classes and their APIs:
         - to check if we have a container for a particular ingredient available or not
 4. Beverage: 
    - name of the beverage
-   - ingredients (name and quantity )
+   - ingredients (name and quantity )  
    APIs:
         - to get beverage name
         - to get beverage details
