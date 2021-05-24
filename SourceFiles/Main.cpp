@@ -226,7 +226,7 @@ void run_in_built_test_cases() {
    // std::cout<< s.GetInt();
 
     FILE* fp;
-    fopen_s(&fp, "InputData/output2.json", "r"); // stupid windows need rb
+    fopen_s(&fp, "output2.json", "r"); 
     char buf[0XFFFF];
 
     //FileReadStream(FILE *fp, char *buffer, std::size_t bufferSize)
