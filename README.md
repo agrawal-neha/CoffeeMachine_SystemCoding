@@ -69,9 +69,6 @@ Below are the classes and their APIs:
 5. A beverage is requested, but cannot be prepared because some of the ingredients are not suffient and some of the ingredients are not available
 6. A beverage is requested, but cannot be prepared because the quantity of ingredient required is more than 
    size of the coffee machine ingredient container that it can hold.
-7. We can show outlet number with the beverages that are being served. 
-   e.g.  ***Outlet 1**: Tea is prepared!
-        **Outlet 2**: Coffee is prepared!
 
 # Future work
 1. Can read beverage requests and serve beverages in parrallel. Currently, it starts serving after it's completed reading the input file.
@@ -80,6 +77,9 @@ Below are the classes and their APIs:
    e.g. Inventory can keep sugar in kg, but user can provide in gms while requesting a coffee
 4. We can keep some default options of beverages and have their classes implemented. If the user does not provide ingredient details, will get regular coffee, 
    also can customise his/her coffee by providing ingredients details.
+5. We can show outlet number with the beverages that are being served. 
+   e.g.  ***Outlet 1**: Tea is prepared!
+        **Outlet 2**: Coffee is prepared!
 
 
 # How to run the application
