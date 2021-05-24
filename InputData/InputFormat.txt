@@ -1,0 +1,32 @@
+#inventory, machine and beverages all are compulsory
+{    "inventory": {
+            "ingredient1": quantity1,
+            "ingredient2": quantity2,
+            "ingredient3": quantity3,
+            "hot_water": 500
+        },
+    "machine": {
+        "outlets": count,
+         "container_capacity": {
+            "ingredient1": quantity01,
+            "ingredient2": quantity02,
+            "ingredient3": quantity03,
+            "hot_water": 5000
+           }
+       },
+    "beverages": {
+        "beverage1":  {
+            "ingredient1": quantity001,
+            "ingredient2": quantity002,
+            "ingredient3": quantity003,
+            "hot_water": 50
+           }
+            "hot_coffee": {
+                "hot_water": 100,
+                "ginger_syrup": 30,
+                "hot_milk": 400,
+                "sugar_syrup": 50,
+                "tea_leaves_syrup": 30
+            }
+        }
+}

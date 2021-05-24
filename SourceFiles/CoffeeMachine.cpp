@@ -66,6 +66,7 @@ void CoffeeMachine::refillContainer(std::string ingred) {
 // Multiple threads will access this method in parallel, mutex is used
 // to handle race condition for the common resources.
 void CoffeeMachine::prepareBeverage(Beverage bev) {
+	
 	bool insufficient = false, unavailable = false;
 	vector<string> unavailIngreds;
 	vector<string> insuffIngreds;
@@ -76,8 +77,10 @@ void CoffeeMachine::prepareBeverage(Beverage bev) {
 	string buffer = "\n";
 	std::thread::id id = std::this_thread::get_id();
 	//cout <<endl<< id;
+	
 	ingredientMutex.lock();
 	auto itr = ingreds.begin();
+	
 
 	// Iterate through the ingredients that are required to prepare beverage
 	while (itr != ingreds.end()) {

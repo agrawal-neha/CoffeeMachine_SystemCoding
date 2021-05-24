@@ -117,7 +117,7 @@ void run_custom_test_cases() {
     }
 
     CoffeeMachine coffeeMachine(n, containerCapacity, inventory);
-
+    unordered_map<string, int> beverageIngredients;
     //Beverages
     std::string beverage;
     cout << "\n##############################################################################";
@@ -131,7 +131,7 @@ void run_custom_test_cases() {
 
 
         cin >> beverage;
-        unordered_map<string, int> beverageIngredients;
+        
         while (1) {
             cout << "\n Enter ingredient and its capacity: ";
             cin >> ingredient >> quantity;
@@ -156,7 +156,7 @@ void run_in_built_test_cases() {
     // Read input from JSON file
     Document d;
     FILE* fp;
-    fopen_s(&fp, "output2.json", "r");
+    fopen_s(&fp, "Input.json", "r");
     char buf[0XFFFF];
 
     rapidjson::FileReadStream input(fp, buf, sizeof(buf));
@@ -168,7 +168,7 @@ void run_in_built_test_cases() {
     string ingredient, beverage;
     unordered_map<string, int> inventory;
     unordered_map<string, int> containerCapacity;
-    unordered_map<string, int> beverageIngredients;
+    //unordered_map<string, int> beverageIngredients;
     queue<Beverage> beverageRequests;
 
     if (document.HasMember("machine")) {
@@ -177,7 +177,6 @@ void run_in_built_test_cases() {
         //fetch outlets
         if (coffeeMachine.HasMember("outlets")) {
             outlets = coffeeMachine["outlets"].GetInt();
-            cout << "\nOutlets: " << outlets;
         }
 
         //fetch containerCapacity
@@ -189,7 +188,6 @@ void run_in_built_test_cases() {
                 ingredient = iter->name.GetString();
                 quantity = iter->value.GetInt();
                 containerCapacity[ingredient] = quantity;
-                cout << endl << ingredient << "\t" << quantity;
             }
         }
     }
@@ -203,7 +201,6 @@ void run_in_built_test_cases() {
             ingredient = iter->name.GetString();
             quantity = iter->value.GetInt();
             inventory[ingredient] = quantity;
-            cout << ingredient << "\t" << quantity;
         }
     }
 
@@ -212,21 +209,21 @@ void run_in_built_test_cases() {
 
     // Fetch beverages
     if (document.HasMember("beverages")) {
-        const Value& beverageDetails = document["beverages"];
-        for (Value::ConstMemberIterator iter = beverageDetails.MemberBegin();
+        Value& beverageDetails = document["beverages"];
+        for (Value::MemberIterator iter = beverageDetails.MemberBegin();
             iter != beverageDetails.MemberEnd(); ++iter)
         {
             beverage = iter->name.GetString();
-            cout << "\n" << beverage;
-            const Value& beverageIngredientDetails = beverageDetails[iter->name];
+            Value &beverageIngredientDetails = beverageDetails[iter->name];
+            //cout << "\n"<< beverage<< " "<<beverageIngredientDetails.Size();
             // Fetch ingredient details for this beverage
-            for (Value::ConstMemberIterator ingredIter = beverageIngredientDetails.MemberBegin();
+            unordered_map<string, int> beverageIngredients;
+            for (Value::MemberIterator ingredIter = beverageIngredientDetails.MemberBegin();
                 ingredIter != beverageIngredientDetails.MemberEnd(); ++ingredIter)
             {
                 ingredient = ingredIter->name.GetString();
                 quantity = ingredIter->value.GetInt();
                 beverageIngredients[ingredient] = quantity;
-                cout << endl << ingredient << "\n" << quantity;
             }
 
             Beverage b(beverage, beverageIngredients);
@@ -236,10 +233,11 @@ void run_in_built_test_cases() {
         }
     }
     cout << "\n##############################################################################";
+    cout << "\nStarting to prepare beverages: ";
     ThreadArgument thArgs;
     thArgs.coffeeMachine = &coffeeMachine;
     thArgs.beverageRequests = &(beverageRequests);
-    cout << "\n \n";
+    cout << "\n";
     std::vector<std::thread> t(outlets);
 
     // Beverages can be served in parallel using different outlets

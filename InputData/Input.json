@@ -2,16 +2,16 @@
     "machine": {
         "outlets": 4,
         "container_capacity": {
-            "hot_water": 350,
-            "hot_milk": 500,
+            "hot_water": 1500,
+            "hot_milk": 1000,
             "ginger_syrup": 100,
             "sugar_syrup": 100,
             "tea_leaves_syrup": 100
         }
     },
     "inventory": {
-        "hot_water": 750,
-        "hot_milk": 500,
+        "hot_water": 2500,
+        "hot_milk": 2000,
         "ginger_syrup": 500,
         "sugar_syrup": 500,
         "tea_leaves_syrup": 5000
@@ -19,21 +19,27 @@
     "beverages": {
         "hot_tea": {
             "hot_water": 350,
-            "hot_milk": 100,
+            "hot_milk": 500,
             "ginger_syrup": 10,
             "sugar_syrup": 10,
             "tea_leaves_syrup": 30
         },
+        "special_tea": {
+            "hot_water": 100,
+            "hot_milk": 1500,
+            "ginger_syrup": 10,
+            "sugar_syrup": 10
+        },
         "hot_coffee": {
             "hot_water": 200,
             "ginger_syrup": 30,
-            "hot_milk": 400,
+            "hot_milk": 600,
             "sugar_syrup": 50,
             "tea_leaves_syrup": 30
         },
         "large_tea": {
             "hot_water": 300,
-            "hot_milk": 100,
+            "hot_milk": 700,
             "ginger_syrup": 10,
             "sugar_syrup": 10,
             "tea_leaves_syrup": 30
@@ -68,6 +74,14 @@
             "ginger_syrup": 10,
             "sugar_syrup": 10,
             "tea_leaves_syrup": 30
+        },
+        "special_ginger_tea": {
+            "hot_water": 100,
+            "hot_milk": 400,
+            "ginger_syrup": 10,
+            "sugar_syrup": 10,
+            "cloves":  10
         }
+
     }
 }
