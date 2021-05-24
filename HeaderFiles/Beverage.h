@@ -3,11 +3,12 @@
 #include<unordered_map>
 using namespace std;
 
-/// Class for requested beverage details 
+////////////////////////////////////////////////////////////////////////////////////
+/// Beverage class																
 /// beverage: name of the beverage e.g. "Coffee"/"Tea"
-/// ingredients: a list of ingredients required to prepare the beverage
-//Ingredients will be shown as name and the quantity required
-
+/// ingredients: a list of ingredients (ingredient name and its quantity) 
+/// required to prepare the beverage
+////////////////////////////////////////////////////////////////////////////////////
 
 class Beverage
 {
@@ -16,8 +17,6 @@ class Beverage
 public:
 	Beverage(std::string name, unordered_map<string, int> ingreds);
 	std::string getBeverageName();
-	////std::vector<Ingredient> getBeverageIngredients();
-	//void setBeverageName(std::string name);
 	unordered_map<std::string, int> getIngredients();
 };
 

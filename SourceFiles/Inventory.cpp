@@ -1,18 +1,14 @@
 #include "Inventory.h"
 #include<iostream>
 
-Inventory::Inventory(){}
+// 'ctr
+Inventory::Inventory() {}
 Inventory::Inventory(std::unordered_map<std::string, int> ingredients) {
 	this->ingredients = ingredients;
 	std::cout << "\Inventory updated!";
 }
-bool Inventory::isSufficient(std::string ingredient) {
-	return true;
-}
-bool Inventory::isAvaialable(std::string ingredient) {
-	return true;
-}
 
+// Fetch the quantity of ingredient available in inventory
 int Inventory::getQuantity(std::string ingredient) {
 	if (ingredients.find(ingredient) != ingredients.end()) {
 		return ingredients[ingredient];
@@ -20,9 +16,9 @@ int Inventory::getQuantity(std::string ingredient) {
 	return 0;
 }
 
+// Update inventory after taking some ingredients out of it
 void Inventory::setQuantity(std::string ingredient, int quantity) {
 	if (ingredients.find(ingredient) != ingredients.end()) {
 		ingredients[ingredient] = quantity;
 	}
 }
-//bool getInventory
