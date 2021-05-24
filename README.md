@@ -94,6 +94,6 @@ Using RapiJSON for parsing JSON input. Refer to https://github.com/Tencent/rapid
 On running the application, it gives user a choice (1) to give inputs interactively, (2) to take input from JSON file. 
 User can choose any one of them and proceed.
 For option 2, it searches a file in same folder with name **Input.json**
-
+Added a file **InputFormat.txt** for the format of input. Input.json file should be aligned with it.
 
 Alternatively, it will be simpler to use **Visual Studio** to build and run the application. All the files should be kept in same folder.
